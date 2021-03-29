@@ -12,11 +12,14 @@ public class UserDao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column
+    @Column(unique = true)
     private String email;
     @Column
     @JsonIgnore
     private String password;
+    @Enumerated(value = EnumType.STRING)
+    @Column
+    private CredentialStatus status;
 
     public UserDao() {
 

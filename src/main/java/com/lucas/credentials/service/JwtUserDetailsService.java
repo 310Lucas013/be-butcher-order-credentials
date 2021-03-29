@@ -1,5 +1,6 @@
 package com.lucas.credentials.service;
 
+import com.lucas.credentials.models.CredentialStatus;
 import com.lucas.credentials.models.UserDao;
 import com.lucas.credentials.models.UserDto;
 import com.lucas.credentials.repository.UserRepository;
@@ -35,6 +36,7 @@ public class JwtUserDetailsService implements UserDetailsService {
         UserDao newUser = new UserDao();
         newUser.setEmail(user.getEmail());
         newUser.setPassword(bcryptEncoder.encode(user.getPassword()));
+        newUser.setStatus(CredentialStatus.UNVERIFIED);
         return userRepo.save(newUser);
     }
 
