@@ -18,7 +18,7 @@ public class UserDao {
     @JsonIgnore
     private String password;
     @Enumerated(value = EnumType.STRING)
-    @Column
+    @Column(name = "credential_status")
     private CredentialStatus status;
 
     public UserDao() {
