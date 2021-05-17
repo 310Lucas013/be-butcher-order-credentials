@@ -20,6 +20,9 @@ public class UserDao {
     @Enumerated(value = EnumType.STRING)
     @Column(name = "credential_status")
     private CredentialStatus status;
+    @Enumerated(value = EnumType.STRING)
+    @Column(name = "user_type")
+    private UserType type;
 
     public UserDao() {
 
