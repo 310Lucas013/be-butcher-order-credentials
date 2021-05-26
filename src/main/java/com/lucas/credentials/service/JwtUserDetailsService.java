@@ -3,6 +3,7 @@ package com.lucas.credentials.service;
 import com.lucas.credentials.models.CredentialStatus;
 import com.lucas.credentials.models.UserDao;
 import com.lucas.credentials.models.UserDto;
+import com.lucas.credentials.models.UserType;
 import com.lucas.credentials.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -37,6 +38,7 @@ public class JwtUserDetailsService implements UserDetailsService {
         newUser.setEmail(user.getEmail());
         newUser.setPassword(bcryptEncoder.encode(user.getPassword()));
         newUser.setStatus(CredentialStatus.UNVERIFIED);
+        newUser.setType(UserType.CUSTOMER);
         return userRepo.save(newUser);
     }
 
